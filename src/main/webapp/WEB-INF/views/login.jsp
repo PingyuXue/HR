@@ -32,7 +32,7 @@
 
 <div class="login-box">
     <div class="login-logo">
-        <a href=""><b>Antra</b> HR</a>
+        <a href=""><b>Antra</b> HR Management</a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
