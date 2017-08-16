@@ -35,9 +35,20 @@ public class DepartmentServiceImpl implements DepartmentService {
 	}
 
 	@Override
-	@Transactional()
+	@Transactional
+	public void deleteDeptById(Integer id) {
+		deptDAO.deleteDeptById(id);
+	}
+
+	@Override
+	@Transactional
 	public List<Department> loadDeptBasicInfo() {
 		return deptDAO.findBasicDeptInfo();
 	}
 
+	@Override
+	@Transactional
+	public Department getDeptById(Integer id) {
+		return deptDAO.findOne(id);
+	}
 }

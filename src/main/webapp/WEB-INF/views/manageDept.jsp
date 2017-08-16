@@ -51,6 +51,8 @@
 									<button type="button" id="detail_button" class="btn btn-primary">Detail</button>
 									<button type="button" id="edit_button" class="btn btn-primary">Edit</button>
 									<button type="button" id="assign_button" class="btn btn-primary">Assign Employee</button>
+									<button type="button" id="delete_button" class="btn btn-primary">Delete Department</button>
+
 								</div></td>
 							</tr>
 						</c:forEach>
@@ -84,14 +86,23 @@
 //        });
 //        $('#modal-info').modal('toggle');
     });
-    $('.detail_button').on('click',function(){
+    $('#detail_button').on('click',function(){
         var uri = "/viewProjDetail?id=" + this.id.substr("actions_detail_".length);
         window.location.replace(uri);
     });
-    $('.edit_button').on('click',function(){
+    $('#edit_button').on('click',function(){
         //alert("Edit: " + this.id);
     });
-    $('.delete_button').on('click',function(){
-
+    $('#delete_button').on('click',function(){
+        $.ajax({
+            type: "get",
+            url: "/deleteDept?id=" + $(this).parent().attr('id').substr('dept_'.length),
+            success: function (data) {
+                window.location.replace("/manageDept");
+            }
+        })
+//    	}).done(data -> {
+//           window.location.replace("/manageDept");
+//		})
     });
 </script>

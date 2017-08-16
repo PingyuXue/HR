@@ -12,4 +12,7 @@ public interface DepartmentService {
 
 	public List<Department> loadDeptBasicInfo();
 
+	public void deleteDeptById(Integer id);
+
+	public Department getDeptById(Integer id);
 }

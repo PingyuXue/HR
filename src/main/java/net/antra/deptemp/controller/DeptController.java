@@ -63,6 +63,12 @@ public class DeptController {
 			return "newDept";
 		}
 	}
+	@GetMapping(value = "/deleteDept", params = {"id"})
+	public String deleteDept(ModelMap model, @ModelAttribute("dept") DepartmentVO dept, @RequestParam(value = "id") Integer id) {
+		deptService.deleteDeptById(id);
+		return "redirect:/manageDept";
+	}
+
 	@RequestMapping("/manageDept")
 	public String showManageDept(ModelMap model, HttpServletRequest res) {
 		model.addAttribute("active_tab","manage_dept");

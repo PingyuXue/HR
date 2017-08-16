@@ -4,6 +4,7 @@ import java.util.List;
 
 import net.antra.deptemp.entity.Department;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 public interface DepartmentDAO extends JpaRepository<Department,Integer>{
@@ -12,4 +13,8 @@ public interface DepartmentDAO extends JpaRepository<Department,Integer>{
 
 	@Query("select DISTINCT OBJECT(d) from Department d")
 	List<Department> findBasicDeptInfo();
+
+	@Modifying
+	@Query("delete from Department d where d.id = ?1")
+	void deleteDeptById(Integer id);
 }
