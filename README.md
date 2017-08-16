@@ -1,7 +1,7 @@
 # Online Administration System
-This is a Demo project using Spring Framework along with MySQL database.
+This is a Demo project using Spring Framework along with MySQL database. It is a simulation of HR management system.
 
-##Tech Stack
+##Tech
 * Spring Boot
 * Spring MVC with Web Security
 * Spring Data JPA
@@ -20,7 +20,10 @@ This is a Demo project using Spring Framework along with MySQL database.
 * Create Employee
 
 ##Functions To Be Implemented
-* ...
+* Manage Project (Update, delete, etc.)
+* Manage Employee (Update, delete etc.)
+* Document Management
+* Timsheet Create/Approval/Submit
 
 ##Contributers
 
