@@ -3,6 +3,7 @@ package net.antra.deptemp.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import net.antra.deptemp.pojo.DepartmentVO;
 import net.antra.deptemp.pojo.validator.DeptvoValidator;
@@ -52,7 +53,7 @@ public class DeptController {
 		return "createDept";
 	}
 	@PostMapping(value = "/newDept")
-	public String addNewDept(ModelMap model, @ModelAttribute("dept") DepartmentVO dept, RedirectAttributes rediAtrb, BindingResult br) {
+	public String addNewDept(ModelMap model, @ModelAttribute("dept") @Valid DepartmentVO dept, RedirectAttributes rediAtrb, BindingResult br) {
 		model.addAttribute("active_tab","new_dept");
 		if(!br.hasErrors()) {
 			deptService.saveDept(dept);

@@ -2,7 +2,6 @@ package net.antra.deptemp.dao;
 
 import net.antra.deptemp.entity.DeptEmpCode;
 import net.antra.deptemp.entity.Employee;
-import org.jboss.logging.annotations.Param;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

@@ -55,7 +55,7 @@ public class EmpController {
 		model.addAttribute("active_tab","new_emp");
 		model.addAttribute("statusCodeList", codeService.getCodeByType(Constants.EMP_STATUS));
 		model.addAttribute("deptList", deptService.loadDeptBasicInfo());
-
+	emp.setFirstName("HELLO");
 		return "createEmp";
 	}
 
