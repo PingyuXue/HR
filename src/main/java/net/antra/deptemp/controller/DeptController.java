@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import net.antra.deptemp.pojo.DepartmentVO;
 import net.antra.deptemp.pojo.validator.DeptvoValidator;
 import net.antra.deptemp.service.CodeService;
+import net.antra.deptemp.service.EmployeeService;
 import net.antra.deptemp.utility.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -33,12 +34,15 @@ public class DeptController {
 	DepartmentService deptService;
 
 	@Autowired
+	EmployeeService empService;
+
+	@Autowired
 	CodeService codeService;
 
 	@Autowired
 	DeptvoValidator validator;
 
-	@InitBinder
+	@InitBinder("DepartmentVO")
 	private void initBinder(WebDataBinder binder) {
 		binder.setValidator(validator);
 		binder.registerCustomEditor( Date.class, new CustomDateEditor( new SimpleDateFormat( "MM/dd/yyyy"), true ));
@@ -63,10 +67,18 @@ public class DeptController {
 			return "newDept";
 		}
 	}
+
 	@GetMapping(value = "/deleteDept", params = {"id"})
-	public String deleteDept(ModelMap model, @ModelAttribute("dept") DepartmentVO dept, @RequestParam(value = "id") Integer id) {
+	public String deleteDept(@RequestParam(value = "id") Integer id) {
 		deptService.deleteDeptById(id);
-		return "redirect:/manageDept";
+		return "manageDept";
+	}
+
+	@RequestMapping(value = "/detailDept", params = {"id"})
+	public String detailDept(ModelMap model, @RequestParam(value = "id") Integer id) {
+		model.addAttribute("dept", deptService.getDeptById(id));
+		model.addAttribute("empList", empService.getAllEmpByDeptId(id));
+		return "detailDept";
 	}
 
 	@RequestMapping("/manageDept")

@@ -7,9 +7,11 @@ import net.antra.deptemp.pojo.EmployeeVO;
 
 public interface EmployeeService {
 
-	public List<Employee> loadEmpBasicInfo();
+	List<Employee> loadEmpBasicInfo();
 
-	public Employee getEmpById(int i);
+	List<Employee> getAllEmpByDeptId(Integer id);
+
+	Employee getEmpById(int i);
 
     void saveEmployee(EmployeeVO emp);
 }

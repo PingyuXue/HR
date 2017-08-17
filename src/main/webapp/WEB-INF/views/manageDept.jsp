@@ -86,19 +86,25 @@
 //        });
 //        $('#modal-info').modal('toggle');
     });
-    $('#detail_button').on('click',function(){
-        var uri = "/viewProjDetail?id=" + this.id.substr("actions_detail_".length);
-        window.location.replace(uri);
+    $(document).on('click', '#detail_button', function(){
+        var uri = "/detailDept?id=" + $(this).parent().attr('id').substr('dept_'.length);
+        $.ajax({
+            type: "get",
+            url: uri,
+            success: function (data) {
+                window.location.assign(uri);
+            }
+        })
     });
-    $('#edit_button').on('click',function(){
+    $(document).on('click', '#edit_button', function(){
         //alert("Edit: " + this.id);
     });
-    $('#delete_button').on('click',function(){
+    $(document).on('click','#delete_button',function(){
         $.ajax({
             type: "get",
             url: "/deleteDept?id=" + $(this).parent().attr('id').substr('dept_'.length),
             success: function (data) {
-                window.location.replace("/manageDept");
+                window.location.assign("/manageDept");
             }
         })
 //    	}).done(data -> {

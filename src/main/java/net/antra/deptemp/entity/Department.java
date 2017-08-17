@@ -24,6 +24,14 @@ public class Department {
 	private DeptEmpCode status;
 	private Set<Employee> employeeList;   
 
+	public Department() {
+
+	}
+
+	public Department(Integer id) {
+		this.id = id;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "dept_id")

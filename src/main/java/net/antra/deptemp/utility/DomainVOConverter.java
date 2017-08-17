@@ -15,6 +15,10 @@ public class DomainVOConverter {
         employee.setFirstName(empVO.getFirstName());
         employee.setLastName(empVO.getLastName());
         employee.setStatus(new DeptEmpCode(empVO.getStatusId()));
+        employee.setAge(empVO.getAge());
+        Department d=new Department();
+        d.setId(empVO.getDeptId());
+        employee.setDepartment(d);
         return employee;
     }
 

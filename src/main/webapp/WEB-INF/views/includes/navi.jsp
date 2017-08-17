@@ -138,4 +138,3 @@
 		</section>
 		<!-- /.sidebar -->
 	</aside>
-</div>

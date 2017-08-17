@@ -6,6 +6,7 @@ public class EmployeeVO {
     private String firstName;
     private String lastName;
     private String phone;
+    private Integer age;
     private Date startDate;
     private String email;
     private Integer statusId;
@@ -74,5 +75,13 @@ public class EmployeeVO {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }

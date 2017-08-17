@@ -6,13 +6,13 @@ import net.antra.deptemp.entity.Department;
 import net.antra.deptemp.pojo.DepartmentVO;
 
 public interface DepartmentService {
-	public void saveDept(DepartmentVO dept);
+	void saveDept(DepartmentVO dept);
 
-	public List<Department> loadDeptDetails();
+	List<Department> loadDeptDetails();
 
-	public List<Department> loadDeptBasicInfo();
+	List<Department> loadDeptBasicInfo();
 
-	public void deleteDeptById(Integer id);
+	void deleteDeptById(Integer id);
 
-	public Department getDeptById(Integer id);
+	Department getDeptById(Integer id);
 }
