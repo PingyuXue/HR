@@ -32,4 +32,5 @@ This is a Demo project using Spring Framework along with MySQL database. It is a
 [dawei.zhuang@antra.net](mailto:dawei.zhuang@antra.net)
 
 test for the commit
+// test 2: for the merger
 
